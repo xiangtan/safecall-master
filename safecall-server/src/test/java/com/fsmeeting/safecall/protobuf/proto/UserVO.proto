@@ -1,0 +1,10 @@
+package com.fsmeeting.safecall.protobuf.proto;  
+option java_package = "com.fsmeeting.safecall.protobuf.proto";  
+option java_outer_classname="UserVoProtos";  
+  
+message UserVo{  
+    optional string name = 1;  
+    optional int32 age = 2;  
+    optional int64 phone = 3;  
+    repeated serialize.UserVo friends = 4;  
+}  

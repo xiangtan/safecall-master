@@ -10,14 +10,14 @@ import java.io.IOException;
  */
 public interface ISerialization {
 	/**
-	 * 序列化类型,范围[Ox04,0x08,0x10,0x20,0x40]
+	 * 序列化类型， 建议（1、2、4、8、16）
 	 * 
 	 * @return
 	 */
 	byte getContentTypeId();
 
 	/**
-	 * 序列化
+	 * 序列化(对象——>二进制)
 	 * 
 	 * @param obj
 	 * @return
@@ -26,7 +26,7 @@ public interface ISerialization {
 	byte[] serialize(Object obj) throws IOException;
 
 	/**
-	 * 反序列化
+	 * 反序列化(二进制——>对象)
 	 * 
 	 * @param bytes
 	 * @return

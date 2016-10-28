@@ -32,8 +32,8 @@ public class MessageClient {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		client.login();
-		client.heartbeat();
+		client.register();
+		//client.heartbeat();
 
 	}
 
@@ -54,7 +54,7 @@ public class MessageClient {
 		});
 
 		// 这里连接服务端绑定的IP和端口
-		bootstrap.connect(new InetSocketAddress("192.168.5.157", 8000));
+		bootstrap.connect(new InetSocketAddress("192.168.5.44", 8000));
 		System.out.println("Client is started...");
 	}
 

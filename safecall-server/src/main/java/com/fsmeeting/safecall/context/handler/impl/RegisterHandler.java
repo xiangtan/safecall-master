@@ -13,7 +13,6 @@ import com.fsmeeting.safecall.beans.common.ResponseCode;
 import com.fsmeeting.safecall.context.BusinessContext;
 import com.fsmeeting.safecall.context.handler.IHandler;
 import com.fsmeeting.safecall.jdbc.JdbcUtils;
-import com.fsmeeting.safecall.serialization.impl.Hessian2;
 import com.fsmeeting.safecall.utils.Cipher;
 import com.fsmeeting.safecall.utils.IDGenerator;
 
@@ -53,7 +52,6 @@ public class RegisterHandler implements IHandler {
 			if (count > 0) {
 				message.setCmd(CommandCode.REGISTER.getCode());
 				message.setReq(false);
-				message.setSer(Hessian2.ID);
 				logger.info("注册成功:" + user.getUsername());
 				resp.setData(user);
 				message.setData(resp);

@@ -15,8 +15,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fsmeeting.safecall.server.handler.MessageChannelPiplineFactory;
-import com.fsmeeting.safecall.utils.PropertiesUtils;
+import com.fsmeeting.safecall.utils.Constants;
 
+/**
+ * 服务器main入口
+ * 
+ * @author yicai.liu<moon>
+ *
+ */
 public class MessageServer {
 
 	private static final Logger logger = LoggerFactory.getLogger(MessageServer.class);
@@ -24,8 +30,6 @@ public class MessageServer {
 	private ChannelFactory factory;
 
 	public static ChannelGroup channelGroup = new DefaultChannelGroup();
-	private static final String IP = PropertiesUtils.getString("serverIP");
-	private static final int PORT = PropertiesUtils.getInteger("serverPort", 8000);
 
 	public static void main(String[] args) throws Exception {
 		MessageServer server = new MessageServer();
@@ -34,11 +38,9 @@ public class MessageServer {
 			while (true) {
 				TimeUnit.SECONDS.sleep(20);
 				logger.info("channelGroup.size() ：" + channelGroup.size());
-
 				for (Channel channel : channelGroup) {
-					logger.info("channel.toString() ：" + channel.toString());
+					logger.info("channel.toString() ：" + channel.toString()); 
 				}
-
 			}
 		} finally {
 			server.stop();
@@ -48,21 +50,12 @@ public class MessageServer {
 	public void start() {
 		factory = new NioServerSocketChannelFactory(Executors.newCachedThreadPool(), // boss线程池
 				Executors.newCachedThreadPool(), // worker线程池
-				8); // worker线程数
-
+				Runtime.getRuntime().availableProcessors()); // worker线程数
 		ServerBootstrap bootstrap = new ServerBootstrap(factory);
-
 		bootstrap.setOption("reuseAddress", true);
-
-		// 对每一个连接（channel），server都会调用
-		// ChannelPipelineFactory为该连接创建一个ChannelPipeline
 		MessageChannelPiplineFactory channelPiplineFactory = new MessageChannelPiplineFactory();
 		bootstrap.setPipelineFactory(channelPiplineFactory);
-
-		// 这里绑定服务端监听的IP和端口
-		bootstrap.bind(new InetSocketAddress(IP, PORT));
-		// Server.channelGroup.add(channel);
-
+		bootstrap.bind(new InetSocketAddress(Constants.SERVER_IP, Constants.SERVER_PORT));
 		logger.info("Server is started...");
 	}
 

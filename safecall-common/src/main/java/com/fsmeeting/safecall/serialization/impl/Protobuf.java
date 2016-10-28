@@ -12,7 +12,7 @@ import com.fsmeeting.safecall.serialization.ISerialization;
  */
 public class Protobuf implements ISerialization {
 
-	public static final byte ID = 0x01;
+	public static final byte ID = 0x04;
 
 	@Override
 	public byte getContentTypeId() {

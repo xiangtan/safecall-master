@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.channel.Channels;
-import org.jboss.netty.handler.timeout.IdleStateAwareChannelHandler;
 import org.jboss.netty.handler.timeout.IdleStateHandler;
 import org.jboss.netty.util.HashedWheelTimer;
 
@@ -15,7 +14,6 @@ public class MessageChannelPiplineFactory implements ChannelPipelineFactory {
 		MessageDecoder messageDecode = new MessageDecoder();
 		MessageLogicHandler messageLogicHandler = new MessageLogicHandler();
 		MessageEncoder messageEncoder = new MessageEncoder();
-		new IdleStateAwareChannelHandler();
 		ChannelPipeline channelPipeline = Channels.pipeline();
 		channelPipeline.addLast("messageEncoder", messageEncoder);
 		channelPipeline.addLast("messageDecode", messageDecode);

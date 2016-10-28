@@ -9,6 +9,7 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fsmeeting.safecall.beans.common.Header;
 import com.fsmeeting.safecall.beans.common.Message;
 import com.fsmeeting.safecall.context.BusinessContext;
 import com.fsmeeting.safecall.context.factory.HandlerFactory;
@@ -39,8 +40,8 @@ public class MessageLogicHandler extends SimpleChannelHandler {
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
 
 		Message message = (Message) e.getMessage();
-
-		IHandler handler = HandlerFactory.getInstance().getHandler(message.getCmd(), message.isReq());
+		Header header = message.getHeader();
+		IHandler handler = HandlerFactory.getInstance().getHandler(header.getCmd(), header.isReq());
 		BusinessContext context = new BusinessContext();
 		context.setChannel(ctx.getChannel());
 		handler.handle(context, message.getData());

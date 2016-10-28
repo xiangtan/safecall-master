@@ -12,7 +12,7 @@ import com.fsmeeting.safecall.serialization.ISerialization;
  */
 public class JSON implements ISerialization {
 
-	public static final byte ID = 0x01;
+	public static final byte ID = 0x02;
 
 	@Override
 	public byte getContentTypeId() {

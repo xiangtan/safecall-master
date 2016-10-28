@@ -59,4 +59,9 @@ public class Response implements Serializable {
 		this.data = data;
 	}
 
+	@Override
+	public String toString() {
+		return "Response [code=" + code + ", data=" + data + "]";
+	}
+
 }

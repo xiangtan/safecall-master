@@ -25,7 +25,7 @@ public class IdleHandler extends IdleStateAwareChannelHandler {
 
 		if (e.getState() == IdleState.ALL_IDLE) {
 			Channel channel = ctx.getChannel();
-			logger.info("----读写空闲----close channel:" + channel);
+			logger.info("读写空闲,close channel:" + channel);
 			Object obj = channel.getAttachment();
 			if (obj != null && obj instanceof Session) {
 				Session session = (Session) obj;

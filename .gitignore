@@ -48,3 +48,5 @@ Temporary Items
 *.svn-base
 .svn/wc.db-journal
 *.db
+*.prefs
+safecall-common/.classpath

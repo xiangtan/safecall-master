@@ -1,0 +1,6 @@
+[2016-10-26 09:40:28][safecall] [com.fsmeeting.safecall.server.MessageServer->start(66)] Server is started...
+[2016-10-26 09:43:32][safecall] [com.fsmeeting.safecall.server.MessageServer->start(66)] Server is started...
+[2016-10-26 09:43:52][safecall] [com.fsmeeting.safecall.server.MessageServer->main(36)] channelGroup.size() ：0
+[2016-10-26 09:44:12][safecall] [com.fsmeeting.safecall.server.MessageServer->main(36)] channelGroup.size() ：0
+[2016-10-26 09:44:32][safecall] [com.fsmeeting.safecall.server.MessageServer->main(36)] channelGroup.size() ：0
+[2016-10-26 09:44:52][safecall] [com.fsmeeting.safecall.server.MessageServer->main(36)] channelGroup.size() ：0

@@ -351,5 +351,6 @@
 	<modules>
 		<module>safecall-common</module>
 		<module>safecall-server</module>
+		<module>safecall-client</module>
 	</modules>
 </project>

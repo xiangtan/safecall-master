@@ -14,7 +14,7 @@ public class Constants {
 	/**
 	 * 服务器IP配置
 	 */
-	public static final String SERVER_IP_STRING = "server.iP";
+	public static final String SERVER_IP_STRING = "server.ip";
 
 	/**
 	 * 服务器端口配置
